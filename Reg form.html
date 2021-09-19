@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration Form</title>
+<style>
+	.body{
+		background-color:#f1f1f1
+	}
+	.form{
+		border-radius:25px;
+		background-color:#333333;
+		color:#f1f1f1;
+		font-weight:bold;
+		padding-top: 50px;
+		padding-bottom: 50px;
+		margin-top: 100px;
+		margin-bottom: 100px;
+		margin-right: 500px;
+		margin-left: 500px;
+	}
+	.title{
+		text-decoration:underline;
+	}
+</style>
+</head>
+<body class="body">
+<center>
+<form class="form" action="Project.html" name="regform" onsubmit="return required()">
+	<h2 class="title">Registration Form</h2>
+	<table>
+	<tr>	
+	<td><label>Full name: </label></td>
+	<td><input type="text" name="fname" placeholder="First name-Middle name-last name"><br></td>
+	</tr>
+	<tr>	
+	<td><label>Email id: </label></td>
+	<td><input type="text" name="email" placeholder="abc@gmail.com"><br></td>
+	</tr>
+	<tr>	
+	<td><label>Number: </label></td>
+	<td><input type="tel" name="mobilenum" placeholder="(+91)" maxlength="10"><br></td>
+	</tr>
+	<tr>	
+	<td><label>Date: </label></td>
+	<td><input type="text" name="birthdate" placeholder="dd-mm-yyyy"><br></td>
+	</tr>
+	<tr><td></td><td><input type="Submit" value="Submit"><button type="reset" onclick="myFunction()">Reset</button></td></tr>
+		
+
+<p id="submit">   </p>
+
+
+<script>
+	function required() 
+   {
+	var a=document.forms["regform"]["fname"].value;
+	var b=document.forms["regform"]["email"].value;     
+	var c=document.forms["regform"]["mobilenum"].value;
+	var d=document.forms["regform"]["birthdate"].value;
+	var p=/\d/;
+	var q=/\D/;
+	var r=/.com$/;
+	var cc=c.length;
+
+	if (a == "")
+      { 
+         alert("Fill Your Name");  	
+         return false; 
+      } 
+	if (b == "")
+	{
+		alert("Fill your Email id");
+		return false;
+	} 
+	if (c == "")
+	{
+		alert("Fill your Phone no.");
+		return false;
+	}
+	if (d == "")
+	{
+		alert("Fill your Birth date");
+		return false;
+	}
+	if(p.test(a))
+	{
+		alert("Digit not valid in Name.");
+		return false;
+	}
+	
+	if(cc == 10)
+	{
+	if(q.test(c))
+	{
+		alert("Alphebets not valid in Phone Number.");
+		return false;
+	}
+	}
+	else
+	{
+		alert("Phone number must be 10-digits");
+		return false;
+	}
+	
+	if(r.match(b))
+	{
+		return true;
+	}
+	else
+	{
+		alert("Email id pattern invalid.");
+		return false;
+	}	 
+    } 
+	function myFunction() { 
+  document.getElementById("submit").innerHTML = "Fill again..!";
+  document.getElementById("submit").style.color = "red";
+}
+</script>
+	</table>
+</form>
+</body>
+</html>
